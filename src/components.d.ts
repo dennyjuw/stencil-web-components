@@ -24,12 +24,12 @@ export namespace Components {
         "color": string;
     }
     interface WxProduct {
-        "id": string;
         "price": number;
+        "productId": string;
+        "productTitle": string;
         "shoppingList": boolean;
         "shoppingListAmount": number;
         "shortDescription": string;
-        "title": string;
     }
 }
 declare global {
@@ -77,13 +77,13 @@ declare namespace LocalJSX {
         "onButtonClicked"?: (event: CustomEvent<any>) => void;
     }
     interface WxProduct {
-        "id"?: string;
         "onAddToShoppingList"?: (event: CustomEvent<any>) => void;
         "price"?: number;
+        "productId"?: string;
+        "productTitle"?: string;
         "shoppingList"?: boolean;
         "shoppingListAmount"?: number;
         "shortDescription"?: string;
-        "title"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
