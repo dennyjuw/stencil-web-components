@@ -20,6 +20,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface WxProduct {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +30,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLWxProductElement extends Components.WxProduct, HTMLStencilElement {
+    }
+    var HTMLWxProductElement: {
+        prototype: HTMLWxProductElement;
+        new (): HTMLWxProductElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "wx-product": HTMLWxProductElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +56,11 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface WxProduct {
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "wx-product": WxProduct;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +68,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "wx-product": LocalJSX.WxProduct & JSXBase.HTMLAttributes<HTMLWxProductElement>;
         }
     }
 }
