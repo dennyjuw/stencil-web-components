@@ -24,10 +24,10 @@ export namespace Components {
         "color": string;
     }
     interface WxProduct {
-        "amount": number;
         "id": string;
         "price": number;
         "shoppingList": boolean;
+        "shoppingListAmount": number;
         "shortDescription": string;
         "title": string;
     }
@@ -77,11 +77,11 @@ declare namespace LocalJSX {
         "onButtonClicked"?: (event: CustomEvent<any>) => void;
     }
     interface WxProduct {
-        "amount"?: number;
         "id"?: string;
         "onAddToShoppingList"?: (event: CustomEvent<any>) => void;
         "price"?: number;
         "shoppingList"?: boolean;
+        "shoppingListAmount"?: number;
         "shortDescription"?: string;
         "title"?: string;
     }
