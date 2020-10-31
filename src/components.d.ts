@@ -20,7 +20,14 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface WxButton {
+        "color": string;
+    }
     interface WxProduct {
+        "amount": number;
+        "price": number;
+        "shortDescription": string;
+        "title": string;
     }
 }
 declare global {
@@ -30,6 +37,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLWxButtonElement extends Components.WxButton, HTMLStencilElement {
+    }
+    var HTMLWxButtonElement: {
+        prototype: HTMLWxButtonElement;
+        new (): HTMLWxButtonElement;
+    };
     interface HTMLWxProductElement extends Components.WxProduct, HTMLStencilElement {
     }
     var HTMLWxProductElement: {
@@ -38,6 +51,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "wx-button": HTMLWxButtonElement;
         "wx-product": HTMLWxProductElement;
     }
 }
@@ -56,10 +70,18 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface WxButton {
+        "color"?: string;
+    }
     interface WxProduct {
+        "amount"?: number;
+        "price"?: number;
+        "shortDescription"?: string;
+        "title"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "wx-button": WxButton;
         "wx-product": WxProduct;
     }
 }
@@ -68,6 +90,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "wx-button": LocalJSX.WxButton & JSXBase.HTMLAttributes<HTMLWxButtonElement>;
             "wx-product": LocalJSX.WxProduct & JSXBase.HTMLAttributes<HTMLWxProductElement>;
         }
     }

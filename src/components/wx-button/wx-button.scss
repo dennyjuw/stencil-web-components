@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.button.primary {
+  background: #178841;
+  color: white;
+}
+
+.button.secondary {
+  background: #125430;
+  color: white;
+}

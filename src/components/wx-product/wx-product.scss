@@ -1,3 +1,21 @@
+@import '../../styles/display';
+
 :host {
   display: block;
+}
+
+.product {
+  border-bottom: solid #e2e2e2 1px;
+  padding: 10px 0;
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.amount {
+  border: solid #e2e2e2 1px;
+  margin: 0 10px;
+  padding: 3px;
+  width: 50px;
 }
