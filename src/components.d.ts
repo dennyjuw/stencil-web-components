@@ -27,6 +27,7 @@ export namespace Components {
         "amount": number;
         "id": string;
         "price": number;
+        "shoppingList": boolean;
         "shortDescription": string;
         "title": string;
     }
@@ -78,7 +79,9 @@ declare namespace LocalJSX {
     interface WxProduct {
         "amount"?: number;
         "id"?: string;
+        "onAddToShoppingList"?: (event: CustomEvent<any>) => void;
         "price"?: number;
+        "shoppingList"?: boolean;
         "shortDescription"?: string;
         "title"?: string;
     }

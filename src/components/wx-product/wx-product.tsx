@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'wx-product',
@@ -13,8 +13,12 @@ export class WxProduct {
   @Prop() price: number;
   @Prop() amount: number;
 
+  @Prop() shoppingList: boolean = false;
+
+  @Event() addToShoppingList: EventEmitter;
+
   addToWishList(e) {
-    console.log('here')
+    this.addToShoppingList.emit({id: this.id, amount: this.amount})
   }
 
   render() {
@@ -26,10 +30,15 @@ export class WxProduct {
             <div class="description">{ this.shortDescription }</div>
           </div>
           <div class="d-flex align-items-center">
+
             <div class="price">
               ${ this.price } ea.
             </div>
-            <input class="amount" type="number" />
+            {
+              this.shoppingList
+              ? <div> x { this.amount }</div>
+              : <input class="amount" type="number" />
+            }
             <wx-button color="primary" onButtonClicked={(e) => this.addToWishList(e)}>
               Add
             </wx-button>
