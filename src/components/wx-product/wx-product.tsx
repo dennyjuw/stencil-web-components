@@ -7,10 +7,15 @@ import { Component, Host, h, Prop } from '@stencil/core';
 })
 export class WxProduct {
 
+  @Prop() id: string;
   @Prop() title: string;
   @Prop() shortDescription: string;
   @Prop() price: number;
   @Prop() amount: number;
+
+  addToWishList(e) {
+    console.log('here')
+  }
 
   render() {
     return (
@@ -25,7 +30,7 @@ export class WxProduct {
               ${ this.price } ea.
             </div>
             <input class="amount" type="number" />
-            <wx-button color="primary">
+            <wx-button color="primary" onButtonClicked={(e) => this.addToWishList(e)}>
               Add
             </wx-button>
           </div>

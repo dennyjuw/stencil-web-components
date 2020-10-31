@@ -25,6 +25,7 @@ export namespace Components {
     }
     interface WxProduct {
         "amount": number;
+        "id": string;
         "price": number;
         "shortDescription": string;
         "title": string;
@@ -72,9 +73,11 @@ declare namespace LocalJSX {
     }
     interface WxButton {
         "color"?: string;
+        "onButtonClicked"?: (event: CustomEvent<any>) => void;
     }
     interface WxProduct {
         "amount"?: number;
+        "id"?: string;
         "price"?: number;
         "shortDescription"?: string;
         "title"?: string;
