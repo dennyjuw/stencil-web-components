@@ -78,6 +78,7 @@ declare namespace LocalJSX {
     }
     interface WxProduct {
         "onAddToShoppingList"?: (event: CustomEvent<any>) => void;
+        "onRemoveFromShoppingList"?: (event: CustomEvent<any>) => void;
         "price"?: number;
         "productId"?: string;
         "productTitle"?: string;

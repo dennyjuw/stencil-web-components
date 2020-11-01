@@ -19,9 +19,10 @@
 
 ## Events
 
-| Event               | Description | Type               |
-| ------------------- | ----------- | ------------------ |
-| `addToShoppingList` |             | `CustomEvent<any>` |
+| Event                    | Description | Type               |
+| ------------------------ | ----------- | ------------------ |
+| `addToShoppingList`      |             | `CustomEvent<any>` |
+| `removeFromShoppingList` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

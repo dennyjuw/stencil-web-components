@@ -15,11 +15,16 @@ export class WxProduct {
   @Prop() shoppingList: boolean = false;
 
   @Event() addToShoppingList: EventEmitter;
+  @Event() removeFromShoppingList: EventEmitter;
 
   @State() amount: number = 0;
 
   addToWishList() {
-    this.addToShoppingList.emit({productId: this.productId, amount: this.amount})
+    this.addToShoppingList.emit({productId: this.productId, amount: this.amount});
+  }
+
+  removeFromWishList() {
+    this.removeFromShoppingList.emit({productId: this.productId});
   }
 
   onAmountUpdate(e) {
@@ -41,12 +46,21 @@ export class WxProduct {
             </div>
             {
               this.shoppingList
-              ? <div> x { this.shoppingListAmount }</div>
-              : <input class="amount" type="number" min="0" max="99" value={ this.amount } onInput={(e) => this.onAmountUpdate(e)} />
+              ?
+              <div class="d-flex">
+                <div class="mx-10">&nbsp;x { this.shoppingListAmount }</div>
+                <wx-button color="primary" onButtonClicked={() => this.removeFromWishList()}>
+                  Remove
+                </wx-button>
+              </div>
+              :
+              <div class="d-flex">
+                <input class="amount" type="number" min="0" max="99" value={ this.amount } onInput={(e) => this.onAmountUpdate(e)} />
+                <wx-button color="primary" onButtonClicked={() => this.addToWishList()}>
+                  Add
+                </wx-button>
+              </div>
             }
-            <wx-button color="primary" onButtonClicked={() => this.addToWishList()}>
-              Add
-            </wx-button>
           </div>
         </div>
       </Host>
